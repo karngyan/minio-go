@@ -143,7 +143,7 @@ func TestHttpRespToErrorResponse(t *testing.T) {
 	// List of expected response.
 	// Used for asserting the actual response.
 	expectedErrResponse := []error{
-		genInvalidError("Empty http response. " + "Please report this issue at https://github.com/minio/minio-go/issues."),
+		genInvalidError("Empty http response. " + "Please report this issue at https://github.com/karngyan/minio-go/issues."),
 		decodeXMLError(createAPIErrorResponse(APIErrors[0], "minio-bucket")),
 		genErrResponse(setCommonHeaders(&http.Response{StatusCode: http.StatusNotFound}), "NoSuchBucket", "The specified bucket does not exist.", "minio-bucket", ""),
 		genErrResponse(setCommonHeaders(&http.Response{StatusCode: http.StatusNotFound}), "NoSuchKey", "The specified key does not exist.", "minio-bucket", "Asia/"),

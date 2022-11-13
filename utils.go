@@ -39,9 +39,9 @@ import (
 	"sync"
 	"time"
 
+	"github.com/karngyan/minio-go/v7/pkg/encrypt"
+	"github.com/karngyan/minio-go/v7/pkg/s3utils"
 	md5simd "github.com/minio/md5-simd"
-	"github.com/minio/minio-go/v7/pkg/encrypt"
-	"github.com/minio/minio-go/v7/pkg/s3utils"
 	"github.com/minio/sha256-simd"
 )
 

@@ -52,11 +52,11 @@ import (
 	"github.com/minio/sha256-simd"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/credentials"
-	"github.com/minio/minio-go/v7/pkg/encrypt"
-	"github.com/minio/minio-go/v7/pkg/notification"
-	"github.com/minio/minio-go/v7/pkg/tags"
+	"github.com/karngyan/minio-go/v7"
+	"github.com/karngyan/minio-go/v7/pkg/credentials"
+	"github.com/karngyan/minio-go/v7/pkg/encrypt"
+	"github.com/karngyan/minio-go/v7/pkg/notification"
+	"github.com/karngyan/minio-go/v7/pkg/tags"
 )
 
 const letterBytes = "abcdefghijklmnopqrstuvwxyz01234569"
@@ -4013,7 +4013,7 @@ func testGetObjectReadAtFunctional() {
 	successLogger(testName, function, args, startTime).Info()
 }
 
-// Reproduces issue https://github.com/minio/minio-go/issues/1137
+// Reproduces issue https://github.com/karngyan/minio-go/issues/1137
 func testGetObjectReadAtWhenEOFWasReached() {
 	// initialize logging params
 	startTime := time.Now()
