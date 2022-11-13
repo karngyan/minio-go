@@ -183,6 +183,42 @@ func (p *PostPolicy) SetContentTypeStartsWith(contentTypeStartsWith string) erro
 	return nil
 }
 
+// SetCacheControl - Sets cache-control of the object for this policy
+// based upload.
+func (p *PostPolicy) SetCacheControl(cacheControl string) error {
+	if strings.TrimSpace(cacheControl) == "" || cacheControl == "" {
+		return errInvalidArgument("No cache control specified.")
+	}
+	policyCond := policyCondition{
+		matchType: "eq",
+		condition: "$Cache-Control",
+		value:     cacheControl,
+	}
+	if err := p.addNewPolicy(policyCond); err != nil {
+		return err
+	}
+	p.formData["Cache-Control"] = cacheControl
+	return nil
+}
+
+// SetCacheControlStartsWith - Sets what cache-control of the object for this policy
+// based upload can start with.
+func (p *PostPolicy) SetCacheControlStartsWith(cacheControlStartsWith string) error {
+	if strings.TrimSpace(cacheControlStartsWith) == "" || cacheControlStartsWith == "" {
+		return errInvalidArgument("No cache control specified.")
+	}
+	policyCond := policyCondition{
+		matchType: "starts-with",
+		condition: "$Cache-Control",
+		value:     cacheControlStartsWith,
+	}
+	if err := p.addNewPolicy(policyCond); err != nil {
+		return err
+	}
+	p.formData["Cache-Control"] = cacheControlStartsWith
+	return nil
+}
+
 // SetContentLengthRange - Set new min and max content length
 // condition for all incoming uploads.
 func (p *PostPolicy) SetContentLengthRange(min, max int64) error {
